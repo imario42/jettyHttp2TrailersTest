@@ -27,10 +27,10 @@ public class ClientMain
         String result = response.readEntity(String.class);
         String serverTiming = response.getHeaderString("Server-Timing");
 
-        System.err.println("expected=" + dataLength + " got=" + result.length());
-        System.err.println("start marker=" + result.startsWith("*START_MARKER*"));
-        System.err.println("end marker=" + result.endsWith("*END_MARKER*"));
-        System.err.println("serverTiming=" + serverTiming);
+        System.err.println("expected characters=" + dataLength + " got characters=" + result.length());
+        System.err.println("start marker present=" + result.startsWith("*START_MARKER*"));
+        System.err.println("end marker present=" + result.endsWith("*END_MARKER*"));
+        System.err.println("trailer serverTiming=" + serverTiming);
 
         System.exit(0);
     }
