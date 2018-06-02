@@ -1,0 +1,32 @@
+server:
+  type: default
+  maxThreads: 350
+  minThreads: 160
+
+  gzip:
+      enabled: false
+
+  requestLog:
+    appenders:
+    - type: console
+      timeZone: UTC
+
+  applicationConnectors:
+  - type: h2c
+    port: 2880
+    acceptQueueSize: 300
+    idleTimeout: 3 minutes
+    useForwardedHeaders: false
+    outputBufferSize: 8KiB
+
+
+logging:
+  # The default level of all loggers. Can be OFF, ERROR, WARN, INFO, DEBUG, TRACE, or ALL.
+  level: INFO
+  loggers:
+    org.eclipse.jetty.http2.server.HttpTransportOverHTTP2: DEBUG
+
+  appenders:
+  - type: console
+    timeZone: UTC
+    threshold: DEBUG
